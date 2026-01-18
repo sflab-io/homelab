@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+#MISE description="Configure network settings"
+#MISE raw=true
+
+# Array erstellen und erste Zeile überspringen
+SERVICES=()
+while IFS= read -r line; do
+  SERVICES+=("$line")
+done < <(networksetup -listallnetworkservices | tail -n +2)
+
+echo "Available network services:"
+printf '%s\n' "${SERVICES[@]}"
+echo ""
+
+# Service mit gum filter auswählen
+SELECTED_SERVICE=$(printf '%s\n' "${SERVICES[@]}" | gum filter --placeholder "Select a network service...")
+
+if [ -z "$SELECTED_SERVICE" ]; then
+  echo "No service selected. Exiting."
+  exit 1
+fi
+
+echo "Selected service: $SELECTED_SERVICE"
+echo ""
+
+# Configuration type auswählen
+CONFIG_TYPE=$(printf '%s\n' "DHCP" "Static" | gum filter --placeholder "Select configuration type...")
+
+if [ -z "$CONFIG_TYPE" ]; then
+    echo "No configuration type selected. Exiting."
+    exit 1
+fi
+
+echo "Configuration type: $CONFIG_TYPE"
+
+if [ "$CONFIG_TYPE" == "DHCP" ]; then
+    echo "Setting $SELECTED_SERVICE to use DHCP..."
+    
+    networksetup -setdhcp "$SELECTED_SERVICE"
+    
+    echo "Configuration updated to DHCP."
+else
+    echo "Setting $SELECTED_SERVICE to use Static IP configuration..."
+
+    CURRENT_IP=$(networksetup -getinfo "$SELECTED_SERVICE" | grep "^IP address:" | awk '{print $3}')
+    CURRENT_SUBNET=$(networksetup -getinfo "$SELECTED_SERVICE" | awk '/Subnet mask:/ {print $3}')
+    CURRENT_ROUTER=$(networksetup -getinfo "$SELECTED_SERVICE" | grep "^Router:" | awk '{print $2}')
+    CURRENT_DNS=$(networksetup -getdnsservers "$SELECTED_SERVICE" | tr '\n' ' ')
+    CURRENT_SEARCH_DOMAINS=$(networksetup -getsearchdomains "$SELECTED_SERVICE" | tr '\n' ' ')
+
+    echo "CURRENT_IP: $CURRENT_IP"
+    echo "CURRENT_SUBNET: $CURRENT_SUBNET"
+    echo "CURRENT_ROUTER: $CURRENT_ROUTER"
+    echo "CURRENT_DNS: $CURRENT_DNS"
+    echo "CURRENT_SEARCH_DOMAINS: $CURRENT_SEARCH_DOMAINS"
+
+    # set CURRENT_IP as default value in gum input
+    IP_ADDRESS=$(gum input --prompt "Enter IP Address: " --value "$CURRENT_IP")
+    SUBNET_MASK=$(gum input --prompt "Enter Subnet Mask: " --value "$CURRENT_SUBNET")
+    ROUTER_IP=$(gum input --prompt "Enter Router IP: " --value "$CURRENT_ROUTER")
+    DNS_SERVERS=$(gum input --prompt "Enter DNS Servers (space separated): " --value "$CURRENT_DNS")
+    SEARCH_DOMAINS=$(gum input --prompt "Enter Search Domains (space separated, optional): " --value "$CURRENT_SEARCH_DOMAINS")
+    
+    echo ""
+    echo "Configuring $SELECTED_SERVICE with the following settings:"
+    echo "IP Address: $IP_ADDRESS"
+    echo "Subnet Mask: $SUBNET_MASK"
+    echo "Router IP: $ROUTER_IP"
+    
+    echo ""
+    networksetup -setmanual "$SELECTED_SERVICE" "$IP_ADDRESS" "$SUBNET_MASK" "$ROUTER_IP"
+    
+    if [ -n "$DNS_SERVERS" ]; then
+        echo "DNS Servers: $DNS_SERVERS"
+        networksetup -setdnsservers "$SELECTED_SERVICE" $DNS_SERVERS
+    else
+        echo "No DNS Servers provided. Skipping DNS configuration."
+    fi
+
+    if [ -n "$SEARCH_DOMAINS" ]; then
+        echo "Search Domains: $SEARCH_DOMAINS"
+        networksetup -setsearchdomains "$SELECTED_SERVICE" $SEARCH_DOMAINS
+    else
+        echo "No Search Domains provided. Skipping search domains configuration."
+    fi
+
+    echo "Configuration updated to Static IP."
+fi

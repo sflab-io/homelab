@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Script to check the status of various homelab services and display them in a formatted way
 
-source ~/git/bash-commons/modules/bash-commons/src/log.sh
+#MISE description="Print network configuration"
+#MISE raw=true
 
 # Function to display network interface information
 show_network_interfaces() {
