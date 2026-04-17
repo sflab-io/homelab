@@ -26,22 +26,19 @@
 		},
 		{
 			"name": "d1-flux-homelab",
-			"path": "src/d1-flux-homelab"
-		},
-		{
-			"name": "d1-flux",
-			"path": "src/d1-flux"
+			"path": "src/flux/d1-flux-homelab"
 		},
 		{
 			"name": "d2-flux-homelab",
-			"path": "src/d2-flux-homelab"
+			"path": "src/flux/d2-flux-homelab"
 		},
 		{
-			"name": "d2-flux",
-			"path": "src/d2-flux"
+			"name": "daggerverse",
+			"path": "src/daggerverse"
+		},
+		{
+			"name": "homelab-docker-compose",
+			"path": "src/homelab-docker-compose"
 		}
-	],
-	"settings": {
-		"ansible.python.interpreterPath": "/opt/homebrew/bin/python3"
-	}
+	]
 }

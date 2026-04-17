@@ -1,7 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "src/homelab-docker-compose"
+			"path": "src/homelab-docker-compose/netbox-docker-compose"
+		},
+		{
+			"path": "src/homelab-docker-compose/scanopy-docker-compose"
 		}
 	],
 	"settings": {}

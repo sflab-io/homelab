@@ -1,15 +1,10 @@
 {
 	"folders": [
 		{
-			"name": "homelab-ansible-playbook",
-			"path": "src/ansible/homelab-ansible-playbook"
+			"path": "src/ansible/ansible-playbook-homelab"
 		},
 		{
-			"name": "ansible-collection-homelab",
 			"path": "src/ansible/ansible-collection-homelab"
-		},
-		{
-			"path": "src/ansible/ansible-collection-homelab-bak"
 		}
 	],
 	"settings": {

@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "src/sflab-docs"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "node_modules/typescript/lib"
+	}
+}
