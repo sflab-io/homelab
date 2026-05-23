@@ -1,7 +1,24 @@
 {
 	"folders": [
 		{
-			"path": "src/homelab-cli"
+			"name": "homelab-cli",
+			"path": "src/homelab-monorepo/apps/homelab-cli"
+		},
+		{
+			"name": "homelab-docs",
+			"path": "src/homelab-monorepo/apps/homelab-docs"
+		},
+		{
+			"name": "homelab-docs-fumadocs",
+			"path": "src/homelab-monorepo/apps/homelab-docs-fumadocs"
+		},
+		{
+			"name": "homelab-monorepo",
+			"path": "src/homelab-monorepo"
+		},
+		{
+			"name": "fumadocs",
+			"path": "tmp/fumadocs"
 		}
 	],
 	"settings": {}

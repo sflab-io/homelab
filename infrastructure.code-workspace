@@ -39,6 +39,19 @@
 		{
 			"name": "homelab-docker-compose",
 			"path": "src/homelab-docker-compose"
+		},
+		{
+			"path": "tmp/terragrunt-infrastructure-catalog-example"
 		}
-	]
+	],
+	"settings": {
+		"debug.javascript.defaultRuntimeExecutable": {
+			"pwa-node": "/Users/seba/.local/share/mise/shims/node"
+		},
+		"python.defaultInterpreterPath": "/Users/seba/.local/share/mise/installs/python/3.12/bin/python",
+		"go.alternateTools": {
+			"go": "/Users/seba/.local/share/mise/shims/go"
+		},
+		"go.goroot": "/Users/seba/.local/share/mise/installs/go/1.26.3"
+	}
 }

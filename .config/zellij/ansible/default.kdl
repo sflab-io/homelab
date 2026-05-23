@@ -11,7 +11,7 @@ layout {
     tab name="homelab-cli" cwd="$PROJECT_SRC/homelab-cli" focus=true
     tab name="claude-code" cwd="$PROJECT_SRC/homelab-cli" {
         pane {
-            command "claude"
+            command "claude --dangerously-skip-permissions"
             cwd "."
         }
     }
