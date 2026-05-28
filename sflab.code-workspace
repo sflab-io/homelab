@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../../.config/mise"
+		},
+		{
+			"path": "../../.claude"
 		}
 	],
 	"settings": {}

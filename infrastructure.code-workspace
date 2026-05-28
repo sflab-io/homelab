@@ -25,6 +25,10 @@
 			"path": "src/ansible/ansible-collection-homelab"
 		},
 		{
+			"name": "ansible-role-authentik",
+			"path": "src/ansible/ansible-role-authentik"
+		},
+		{
 			"name": "d1-flux-homelab",
 			"path": "src/flux/d1-flux-homelab"
 		},
@@ -41,6 +45,7 @@
 			"path": "src/homelab-docker-compose"
 		},
 		{
+			"name": "terragrunt-infrastructure-catalog-example",
 			"path": "tmp/terragrunt-infrastructure-catalog-example"
 		}
 	],
