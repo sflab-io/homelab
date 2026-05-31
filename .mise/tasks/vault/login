@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+#MISE description="Authenticates with Vault via AppRole and caches the token to ~/.vault-token."
+
+set -e
+
+export VAULT_ADDR="${VAULT_ADDR:-https://vault.home.sflab.io:8200}"
+
+TOKEN=$(vault write -field=token auth/approle/login \
+  role_id="$VAULT_ROLE_ID" \
+  secret_id="$VAULT_SECRET_ID")
+
+echo "$TOKEN" > "${HOME}/.vault-token"
+chmod 600 "${HOME}/.vault-token"
+echo "Vault token cached to ~/.vault-token"
