@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "../../src/homelab-monorepo/apps/homelab-docs"
+    },
+    {
+      "path": "../../src/homelab-monorepo"
+    }
+  ],
+  "settings": {
+    "typescript.tsdk": "node_modules/typescript/lib",
+  },
+}

@@ -23,11 +23,4 @@ layout {
             args "--dangerously-skip-permissions"
         }
     }
-    tab name="homelab-docs-fumadocs" cwd="$PROJECT_SRC/homelab-monorepo/apps/homelab-docs-fumadocs" split_direction="vertical" {
-        pane cwd="." size="50%"
-        pane cwd="." size="50%" focus=true {
-            command "claude"
-            args "--dangerously-skip-permissions"
-        }
-    }
 }
