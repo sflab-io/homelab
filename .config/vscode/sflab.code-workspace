@@ -1,17 +1,13 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../../dotfiles"
-		},
-		{
-			"path": "../../.config/mise"
-		},
-		{
-			"path": "../../.claude"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "name": "sflab",
+      "path": "../.."
+    },
+    {
+      "name": "dotfiles",
+      "path": "../../../../dotfiles"
+    }
+  ],
+  "settings": {},
 }

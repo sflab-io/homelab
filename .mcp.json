@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "netbox": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "--directory",
+        "${PROJECT_HOME}/src/netbox-mcp-server",
+        "run",
+        "netbox-mcp-server"
+      ],
+      "env": {
+        "NETBOX_URL": "${NETBOX_URL}",
+        "NETBOX_TOKEN": "${NETBOX_API_TOKEN}"
+      }
+    },
+    "vault": {
+      "type": "stdio",
+      "command": "vault-mcp-server",
+      "args": ["stdio"],
+      "env": {
+        "VAULT_ADDR": "${VAULT_ADDR}",
+        "VAULT_TOKEN": "${VAULT_TOKEN}"
+      }
+    }
+  }
+}

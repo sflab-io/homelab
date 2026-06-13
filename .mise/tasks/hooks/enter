@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+#MISE description "Hook task that runs on directory entry. Used to setup environment variables and other necessary configuration for the project.
+
+echo "-----------------------------------"
+figlet "$PROJECT_ID"
+echo "Welcome to the $PROJECT_ID DEV Workspace!"
+echo "-----------------------------------"
+
+mise i -q
+
+mise run vault:create-token
+
+# A problem is that this hook is executed on every `cd` into the sflab directory or its subdirectories (e.g. below ./src).
+# To execute the hook only on first entry into the sflab root directory, the following logic can be used:
+# if [ -z "$MISE_ORIGINAL_CWD" ] || [[ "$MISE_ORIGINAL_CWD" != "$PWD"* ]]; then
+#   pre-commit install --hook-type pre-commit
+# fi

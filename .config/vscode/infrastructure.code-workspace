@@ -1,62 +1,41 @@
 {
 	"folders": [
 		{
-			"name": "packer-templates-homelab",
-			"path": "src/packer-templates-homelab"
+			"path": "../../src/packer-templates-homelab"
 		},
 		{
-			"name": "terraform-provider-homelab",
-			"path": "src/terraform-provider-homelab"
+			"path": "../../src/terraform-provider-homelab"
 		},
 		{
-			"name": "terragrunt-catalog-homelab",
-			"path": "src/terragrunt-catalog-homelab"
+			"path": "../../src/terragrunt-catalog-homelab"
 		},
 		{
-			"name": "terragrunt-stacks-homelab",
-			"path": "src/terragrunt-stacks-homelab"
+			"path": "../../src/terragrunt-stacks-homelab"
 		},
 		{
-			"name": "ansible-playbook-homelab",
-			"path": "src/ansible/ansible-playbook-homelab"
+			"path": "../../src/ansible/ansible-playbook-homelab"
 		},
 		{
-			"name": "ansible-collection-homelab",
-			"path": "src/ansible/ansible-collection-homelab"
+			"path": "../../src/ansible/ansible-collection-homelab"
 		},
 		{
-			"name": "ansible-role-authentik",
-			"path": "src/ansible/ansible-role-authentik"
+			"path": "../../src/flux/d2-flux-homelab"
 		},
 		{
-			"name": "d1-flux-homelab",
-			"path": "src/flux/d1-flux-homelab"
+			"path": "../../src/homelab-docker-compose"
 		},
 		{
-			"name": "d2-flux-homelab",
-			"path": "src/flux/d2-flux-homelab"
-		},
-		{
-			"name": "daggerverse",
-			"path": "src/daggerverse"
-		},
-		{
-			"name": "homelab-docker-compose",
-			"path": "src/homelab-docker-compose"
-		},
-		{
-			"name": "terragrunt-infrastructure-catalog-example",
-			"path": "tmp/terragrunt-infrastructure-catalog-example"
+			"path": "../../src/homelab-docs"
 		}
 	],
 	"settings": {
+		"go.goroot": "/Users/seba/.local/share/mise/installs/go/1.26.3",
 		"debug.javascript.defaultRuntimeExecutable": {
 			"pwa-node": "/Users/seba/.local/share/mise/shims/node"
 		},
-		"python.defaultInterpreterPath": "/Users/seba/.local/share/mise/installs/python/3.12/bin/python",
 		"go.alternateTools": {
 			"go": "/Users/seba/.local/share/mise/shims/go"
 		},
-		"go.goroot": "/Users/seba/.local/share/mise/installs/go/1.26.3"
+		"python.defaultInterpreterPath": "/Users/seba/.local/share/mise/installs/python/3.12/bin/python"
 	}
 }

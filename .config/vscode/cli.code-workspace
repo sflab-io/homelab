@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "homelab-cli",
+			"path": "src/homelab-monorepo/apps/homelab-cli"
+		},
+		{
+			"name": "homelab-monorepo",
+			"path": "src/homelab-monorepo"
+		}
+	],
+	"settings": {}
+}
