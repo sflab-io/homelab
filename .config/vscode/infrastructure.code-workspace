@@ -1,31 +1,56 @@
 {
 	"folders": [
 		{
+			"name": "packer-templates-homelab",
 			"path": "../../src/packer-templates-homelab"
 		},
 		{
+			"name": "terraform-provider-homelab",
 			"path": "../../src/terraform-provider-homelab"
 		},
 		{
+			"name": "terragrunt-catalog-homelab",
 			"path": "../../src/terragrunt-catalog-homelab"
 		},
 		{
+			"name": "terragrunt-stacks-homelab",
 			"path": "../../src/terragrunt-stacks-homelab"
 		},
 		{
+			"name": "ansible-playbook-homelab",
 			"path": "../../src/ansible/ansible-playbook-homelab"
 		},
 		{
+			"name": "ansible-collection-homelab",
 			"path": "../../src/ansible/ansible-collection-homelab"
 		},
 		{
+			"name": "d2-flux-homelab",
 			"path": "../../src/flux/d2-flux-homelab"
 		},
 		{
-			"path": "../../src/homelab-docker-compose"
+			"name": "homelab-docker-netbox",
+			"path": "../../src/homelab-docker-netbox"
 		},
 		{
+			"name": "homelab-docs",
 			"path": "../../src/homelab-docs"
+		},
+		{
+			"name": "homelab-monorepo",
+			"path": "../../src/homelab-monorepo"
+		},
+		{
+			"name": "ansible-role-traefik",
+			"path": "../../src/ansible-role-traefik"
+		},
+		{
+			"name": "cas-ansible-live",
+			"path": "../../src/ansible/cas-ansible-live"
+		},
+		{
+			"name": "daggerverse",
+			"path": "../../src/daggerverse"
 		}
 	],
 	"settings": {

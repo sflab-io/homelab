@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+#MISE description="Update all dagger module dependencies referenced in dagger.json"
+
+set -euo pipefail
+
+cd "$MISE_ORIGINAL_CWD"
+
+for source in $(jq -r '.dependencies[].source' dagger.json); do
+    dagger update "$source"
+done
+
+cd "$MISE_ORIGINAL_CWD/.dagger"
+
+dagger develop

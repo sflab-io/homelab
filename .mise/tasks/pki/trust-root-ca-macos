@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+#MISE description="sflab Root CA in macOS System Keychain als vertrauenswürdig importieren"
+#MISE depends=["pki:get-root-ca"]
+
+set -euo pipefail
+
+CA_FILE="${HOME}/sflab-root-ca.pem"
+
+if [[ ! -f "$CA_FILE" ]]; then
+  echo "Root CA nicht gefunden: $CA_FILE" >&2
+  echo "Zuerst 'mise run pki:get-root-ca' ausführen." >&2
+  exit 1
+fi
+
+sudo security add-trusted-cert -d -r trustRoot \
+  -k /Library/Keychains/System.keychain "$CA_FILE"
+
+echo "Root CA erfolgreich in macOS System Keychain importiert."
+security find-certificate -c "sflab.local Root CA" /Library/Keychains/System.keychain \
+  | grep '"labl"' || true

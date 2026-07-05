@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+#MISE description="Root CA aus In-Cluster Vault (mgm-staging) extrahieren → ~/sflab-root-ca.pem"
+
+set -euo pipefail
+
+CONTEXT="${1:-mgm-staging}"
+OUT="${2:-$HOME/sflab-root-ca.pem}"
+
+ROOT_TOKEN=$(kubectl get secret vault-unseal-keys -n vault --context "$CONTEXT" \
+  -o jsonpath='{.data.vault-root}' | base64 -d)
+
+kubectl exec -n vault vault-0 -c vault --context "$CONTEXT" -- sh -c \
+  "VAULT_ADDR=http://127.0.0.1:8200 VAULT_TOKEN=$ROOT_TOKEN vault read -field=certificate pki_root/cert/ca" \
+  > "$OUT"
+
+echo "Root CA gespeichert: $OUT"
+openssl x509 -in "$OUT" -noout -subject -issuer -dates

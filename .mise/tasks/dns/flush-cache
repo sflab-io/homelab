@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+#MISE description="Flush DNS Cache"
+
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder

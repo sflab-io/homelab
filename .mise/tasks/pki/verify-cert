@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#MISE description="TLS-Zertifikat eines Hosts prüfen (Chain + Ablaufdatum)"
+
+set -euo pipefail
+
+HOST="${1:-}"
+PORT="${2:-443}"
+
+if [[ -z "$HOST" ]]; then
+  echo "Usage: mise run pki:verify-cert <host> [port]" >&2
+  echo "Example: mise run pki:verify-cert podinfo.mgm-staging.home.sflab.io" >&2
+  exit 1
+fi
+
+echo "=== TLS-Zertifikat: $HOST:$PORT ==="
+openssl s_client -connect "$HOST:$PORT" -showcerts </dev/null 2>/dev/null \
+  | openssl x509 -noout -subject -issuer -dates
+
+echo ""
+echo "=== Chain-Verifikation ==="
+CA_FILE="${HOME}/sflab-root-ca.pem"
+if [[ -f "$CA_FILE" ]]; then
+  openssl s_client -connect "$HOST:$PORT" -CAfile "$CA_FILE" </dev/null 2>&1 \
+    | grep -E "(Verify return code|depth|CN=)"
+else
+  echo "Root CA nicht lokal verfügbar ($CA_FILE) — übersprungen."
+fi

@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+#MISE description="Provision Host(s) using IAC (Infrastructure as Code)"
+#USAGE flag "-y --yes" help="Automatic yes to prompts" default="false"
+
+#MISE raw=true
+
+set -euo pipefail
+
+# shellcheck source=config
+source "$(dirname "$0")/_config"
+
+echo ""
+print_config "IAC UP - Provision Host(s)"
+
+gum style --foreground 39 --bold --margin "0 0 1 0" \
+    ">>>> Running Terragrunt to provision the stack: $STACK in stage: $STAGE"
+mise -C "$TERRAGRUNT_REPO" run terragrunt:stack:apply-old "$STAGE" "$STACK" -y
+
+sleep 3
+
+gum style --foreground 39 --bold --margin "0 0 1 0" \
+    ">>>> Flush DNS cache"
+mise -C "$BASE_DIR" run dns:flush-cache
+
+gum style --foreground 39 --bold --margin "0 0 1 0" \
+    ">>>> Waiting 30 seconds for the VM's to be ready..."
+sleep 30
+
+gum style --foreground 39 --bold --margin "0 0 1 0" \
+    ">>>> Running Ansible to configure the stack: $STACK in stage: $STAGE with playbook: $PLAYBOOK"
+mise -C "$ANSIBLE_REPO" run ansible:playbook:run-old inventory/"$STAGE"/"$STACK"/hosts.yml "$PLAYBOOK"
+
+gum style --foreground 39 --bold --margin "0 0 1 0" \
+    ">>>> Running Flux bootstrap for the stack: $STACK in stage: $STAGE"
+mise -C "$D2_FLEET_REPO" run flux:bootstrap "$STACK-$STAGE" --yes

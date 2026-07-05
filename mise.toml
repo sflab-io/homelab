@@ -14,7 +14,7 @@ PROJECT_SRC = "{{ config_root }}/src"
 PROJECT_CONF = "{{ config_root }}/conf"
 PROJECT_DOCS = "{{ config_root }}/docs"
 
-VAULT_ADDR = "https://vault.home.sflab.io:8200"
+VAULT_ADDR = "https://vault.home.sflab.io"
 VAULT_SKIP_VERIFY = "true"
 VAULT_TOKEN = "{{ exec(command='cat ~/.vault-token') }}"
 

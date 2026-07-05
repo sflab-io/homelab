@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+STACK="mgm-cluster"
+STAGE="staging"
+PLAYBOOK="site-k3s.yml"
+
+BASE_DIR="$HOME/projects/sflab"
+
+TERRAGRUNT_REPO="${BASE_DIR}/src/terragrunt-stacks-homelab"
+ANSIBLE_REPO="${BASE_DIR}/src/ansible/ansible-playbook-homelab"
+D2_FLEET_REPO="${BASE_DIR}/src/flux/d2-flux-homelab/d2-fleet-homelab"
+
+print_config() {
+    local message=${1:-"# IAC Configuration"}
+
+    echo ""
+    gum style --foreground 39 --bold --margin "0 0 1 0" "$message"
+    gum style --foreground 245 " STACK    : $STACK"
+    gum style --foreground 245 " STAGE    : $STAGE"
+    gum style --foreground 245 " PLAYBOOK : $PLAYBOOK"
+    echo ""
+
+    if [ "${usage_yes?}" = "false" ]; then
+        gum confirm "Continue?" || exit 1
+    fi
+}

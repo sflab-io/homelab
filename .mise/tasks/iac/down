@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+#MISE description="Unprovision Host(s) using IAC (Infrastructure as Code)"
+#USAGE flag "-y --yes" help="Automatic yes to prompts" default="false"
+
+#MISE raw=true
+
+set -euo pipefail
+
+# shellcheck source=config
+source "$(dirname "$0")/_config"
+
+print_config "IAC DOWN - Unprovision Host(s)"
+
+echo ">>>> Running Terragrunt to unprovision the stack: $STACK in stage: $STAGE"
+mise -C "$TERRAGRUNT_REPO" run terragrunt:stack:destroy-old "$STAGE" "$STACK" -y
