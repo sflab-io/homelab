@@ -2,10 +2,10 @@
 
 #MISE description="Hook task that runs on directory entry."
 
-echo "-----------------------------------"
+echo "------------------------------------------"
 figlet "$PROJECT_ID"
 echo "Welcome to the $PROJECT_ID DEV Workspace!"
-echo "-----------------------------------"
+echo "------------------------------------------"
 
 mise i -q
 
