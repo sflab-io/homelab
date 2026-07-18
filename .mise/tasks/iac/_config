@@ -4,7 +4,7 @@ STACK="mgm-cluster"
 STAGE="staging"
 PLAYBOOK="site-k3s.yml"
 
-BASE_DIR="$HOME/projects/sflab"
+BASE_DIR="$HOME/projects/homelab"
 
 TERRAGRUNT_REPO="${BASE_DIR}/src/terragrunt-stacks-homelab"
 ANSIBLE_REPO="${BASE_DIR}/src/ansible/ansible-playbook-homelab"

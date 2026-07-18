@@ -23,6 +23,7 @@ Automatisches Backup-Skript für MacBook mit restic zu einem TrueNAS Server übe
 ### 2. TrueNAS Dataset
 
 Stelle sicher, dass auf dem TrueNAS Server ein Dataset für Backups existiert:
+
 - Standard-Pfad im Skript: `/mnt/storage/storage-share-smb/rbackup`
 - Passe `BACKUP_PATH` in der Konfiguration an, falls nötig
 
@@ -84,6 +85,7 @@ EXCLUDE_PATTERNS=(
 ```
 
 Das Skript zeigt ein interaktives Menü mit folgenden Optionen:
+
 1. Repository initialisieren
 2. Backup durchführen
 3. Alte Backups aufräumen
@@ -153,7 +155,7 @@ Erstelle eine plist-Datei für automatische Backups:
     <string>com.user.restic-backup</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/seba/projects/sflab/scripts/macbook-backup.sh</string>
+        <string>/Users/seba/projects/homelab/scripts/macbook-backup.sh</string>
         <string>backup</string>
     </array>
     <key>StartCalendarInterval</key>
@@ -183,7 +185,7 @@ Füge zu crontab hinzu (`crontab -e`):
 
 ```bash
 # Täglich um 2:00 Uhr
-0 2 * * * /Users/seba/projects/sflab/scripts/macbook-backup.sh backup >> /tmp/restic-backup.log 2>&1
+0 2 * * * /Users/seba/projects/homelab/scripts/macbook-backup.sh backup >> /tmp/restic-backup.log 2>&1
 ```
 
 ## Wiederherstellung

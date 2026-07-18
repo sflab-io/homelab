@@ -1,7 +1,7 @@
 {
   "folders": [
     {
-      "name": "sflab",
+      "name": "homelab",
       "path": "../.."
     },
     {
@@ -9,9 +9,11 @@
       "path": "../../../../dotfiles"
     },
     {
+      "name": ".claude",
       "path": "../../../../.claude"
     },
     {
+      "name": ".config",
       "path": ".."
     }
   ],

@@ -8,7 +8,7 @@ uv = "latest"
 fnox-env = "https://github.com/jdx/mise-env-fnox"
 
 [env]
-PROJECT_ID = "sflab"
+PROJECT_ID = "homelab"
 PROJECT_HOME = "{{ config_root }}"
 PROJECT_SRC = "{{ config_root }}/src"
 PROJECT_CONF = "{{ config_root }}/conf"

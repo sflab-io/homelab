@@ -1,7 +1,7 @@
 projects:
-  sflab:
+  homelab:
     path: .
-    url: git@github.com:abes140377/sflab.git
+    url: git@github.com:sflab-io/homelab.git
     desc: Homelab toplevel project
 
   ansible-role-adguardhome:
