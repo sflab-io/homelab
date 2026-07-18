@@ -17,14 +17,6 @@
 			"path": "../../src/flux/d2-flux-homelab/d2-apps-homelab"
 		},
 		{
-			"name": "homelab-docker-netbox",
-			"path": "../../src/homelab-docker-netbox"
-		},
-		{
-			"name": "homelab-docs",
-			"path": "../../src/homelab-docs"
-		},
-		{
 			"path": "../../src/flux-local-dev"
 		},
 		{
