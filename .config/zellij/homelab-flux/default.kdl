@@ -1,0 +1,41 @@
+layout {
+    cwd "$PROJECT_SRC"
+
+    tab name="d2-flux" cwd="flux/d2-flux-homelab" split_direction="vertical" {
+        pane cwd="." size="50%"
+        pane cwd="." size="50%"
+    }
+    tab name="d2-fleet" cwd="flux/d2-flux-homelab/d2-fleet-homelab" split_direction="vertical" {
+        pane cwd="." size="50%"
+        pane cwd="." size="50%"
+    }
+    tab name="d2-infra" cwd="flux/d2-flux-homelab/d2-infra-homelab" split_direction="vertical" {
+        pane cwd="." size="50%"
+        pane cwd="." size="50%"
+    }
+    tab name="d2-apps" cwd="flux/d2-flux-homelab/d2-apps-homelab" split_direction="vertical" {
+        pane cwd="." size="50%"
+        pane cwd="." size="50%"
+    }
+    tab name="homelab-docker-netbox" cwd="homelab-docker-netbox" split_direction="vertical" {
+        pane cwd="." size="50%"
+        pane cwd="." size="50%"
+    }
+    tab name="homelab-docs" cwd="homelab-docs" split_direction="vertical" {
+        pane cwd="." size="50%"
+        pane cwd="." size="50%"
+    }
+    tab name="flux-local-dev" cwd="flux-local-dev" split_direction="vertical" {
+        pane cwd="." size="50%"
+        pane cwd="." size="50%"
+    }
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+}

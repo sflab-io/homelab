@@ -25,32 +25,8 @@
 			"path": "../../src/ansible/ansible-collection-homelab"
 		},
 		{
-			"name": "d2-flux-homelab",
-			"path": "../../src/flux/d2-flux-homelab"
-		},
-		{
-			"name": "homelab-docker-netbox",
-			"path": "../../src/homelab-docker-netbox"
-		},
-		{
-			"name": "homelab-docs",
-			"path": "../../src/homelab-docs"
-		},
-		{
-			"name": "homelab-monorepo",
-			"path": "../../src/homelab-monorepo"
-		},
-		{
 			"name": "ansible-role-traefik",
 			"path": "../../src/ansible-role-traefik"
-		},
-		{
-			"name": "cas-ansible-live",
-			"path": "../../src/ansible/cas-ansible-live"
-		},
-		{
-			"name": "daggerverse",
-			"path": "../../src/daggerverse"
 		}
 	],
 	"settings": {

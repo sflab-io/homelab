@@ -1,4 +1,10 @@
 layout {
+    cwd "$PROJECT_HOME"
+
+    tab name="homelab" cwd="." split_direction="vertical" {
+        pane cwd="." size="50%"
+        pane cwd="." size="50%"
+    }
     default_tab_template {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
@@ -6,13 +12,6 @@ layout {
         children
         pane size=2 borderless=true {
             plugin location="zellij:status-bar"
-        }
-    }
-    tab name="homelab-cli" cwd="$PROJECT_SRC/homelab-cli" focus=true
-    tab name="claude-code" cwd="$PROJECT_SRC/homelab-cli" {
-        pane {
-            command "claude"
-            cwd "."
         }
     }
 }

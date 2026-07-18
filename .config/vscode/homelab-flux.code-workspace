@@ -1,0 +1,44 @@
+{
+	"folders": [
+		{
+			"name": "d2-flux-homelab",
+			"path": "../../src/flux/d2-flux-homelab"
+		},
+		{
+			"name": "d2-fleet-homelab",
+			"path": "../../src/flux/d2-flux-homelab/d2-fleet-homelab"
+		},
+		{
+			"name": "d2-infra-homelab",
+			"path": "../../src/flux/d2-flux-homelab/d2-infra-homelab"
+		},
+		{
+			"name": "d2-apps-homelab",
+			"path": "../../src/flux/d2-flux-homelab/d2-apps-homelab"
+		},
+		{
+			"name": "homelab-docker-netbox",
+			"path": "../../src/homelab-docker-netbox"
+		},
+		{
+			"name": "homelab-docs",
+			"path": "../../src/homelab-docs"
+		},
+		{
+			"path": "../../src/flux-local-dev"
+		},
+		{
+			"path": "../../src/flux-local-dev.worktrees/main"
+		}
+	],
+	"settings": {
+		"go.goroot": "/Users/seba/.local/share/mise/installs/go/1.26.3",
+		"debug.javascript.defaultRuntimeExecutable": {
+			"pwa-node": "/Users/seba/.local/share/mise/shims/node"
+		},
+		"go.alternateTools": {
+			"go": "/Users/seba/.local/share/mise/shims/go"
+		},
+		"python.defaultInterpreterPath": "/Users/seba/.local/share/mise/installs/python/3.12/bin/python"
+	}
+}
