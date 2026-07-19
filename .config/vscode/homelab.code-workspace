@@ -7,14 +7,6 @@
     {
       "name": "dotfiles",
       "path": "../../../../dotfiles"
-    },
-    {
-      "name": ".claude",
-      "path": "../../../../.claude"
-    },
-    {
-      "name": ".config",
-      "path": ".."
     }
   ],
   "settings": {},

@@ -21,10 +21,6 @@ layout {
         pane cwd="." size="50%"
         pane cwd="." size="50%"
     }
-    tab name="homelab-docs" cwd="homelab-docs" split_direction="vertical" {
-        pane cwd="." size="50%"
-        pane cwd="." size="50%"
-    }
     tab name="flux-local-dev" cwd="flux-local-dev" split_direction="vertical" {
         pane cwd="." size="50%"
         pane cwd="." size="50%"

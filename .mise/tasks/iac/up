@@ -14,8 +14,8 @@ echo ""
 print_config "IAC UP - Provision Host(s)"
 
 gum style --foreground 39 --bold --margin "0 0 1 0" \
-    ">>>> Running Terragrunt to provision the stack: $STACK in stage: $STAGE"
-mise -C "$TERRAGRUNT_REPO" run terragrunt:stack:apply-old "$STAGE" "$STACK" -y
+    ">>>> Running Terragrunt to provision the stack: $CLUSTER-cluster in stage: $STAGE"
+mise -C "$TERRAGRUNT_REPO" run terragrunt:stack:apply-old "$STAGE" "$CLUSTER-cluster" -y
 
 sleep 3
 
@@ -28,9 +28,11 @@ gum style --foreground 39 --bold --margin "0 0 1 0" \
 sleep 30
 
 gum style --foreground 39 --bold --margin "0 0 1 0" \
-    ">>>> Running Ansible to configure the stack: $STACK in stage: $STAGE with playbook: $PLAYBOOK"
-mise -C "$ANSIBLE_REPO" run ansible:playbook:run-old inventory/"$STAGE"/"$STACK"/hosts.yml "$PLAYBOOK"
+    ">>>> Running Ansible to configure the stack: $CLUSTER-cluster in stage: $STAGE with playbook: $PLAYBOOK"
+mise -C "$ANSIBLE_REPO" run ansible:playbook:run-old inventory/"$STAGE"/"$CLUSTER-cluster"/hosts.yml "$PLAYBOOK"
+
+kubectx $CLUSTER-$STAGE
 
 gum style --foreground 39 --bold --margin "0 0 1 0" \
-    ">>>> Running Flux bootstrap for the stack: $STACK in stage: $STAGE"
-mise -C "$D2_FLEET_REPO" run flux:bootstrap "$STACK-$STAGE" --yes
+    ">>>> Running Flux bootstrap for the stack: $CLUSTER-cluster in stage: $STAGE"
+mise -C "$D2_FLEET_REPO" run flux:bootstrap "$CLUSTER-cluster-$STAGE" --yes

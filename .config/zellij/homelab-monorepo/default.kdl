@@ -4,17 +4,11 @@ layout {
     tab name="homelab-monorepo" cwd="homelab-monorepo"
     tab name="homelab-cli" cwd="homelab-monorepo/apps/homelab-cli" split_direction="vertical" focus=true {
         pane cwd="." size="50%"
-        pane cwd="." size="50%" focus=true {
-            command "claude"
-            args "--dangerously-skip-permissions"
-        }
+        pane cwd="." size="50%"
     }
     tab name="homelab-docs" cwd="homelab-monorepo/apps/homelab-docs" split_direction="vertical" {
         pane cwd="." size="50%"
-        pane cwd="." size="50%" focus=true {
-            command "claude"
-            args "--dangerously-skip-permissions"
-        }
+        pane cwd="." size="50%"
     }
     default_tab_template {
         pane size=1 borderless=true {

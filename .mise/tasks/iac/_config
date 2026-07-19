@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-STACK="mgm-cluster"
+CLUSTER="mgm"
 STAGE="staging"
 PLAYBOOK="site-k3s.yml"
 
@@ -15,7 +15,7 @@ print_config() {
 
     echo ""
     gum style --foreground 39 --bold --margin "0 0 1 0" "$message"
-    gum style --foreground 245 " STACK    : $STACK"
+    gum style --foreground 245 " CLUSTER  : $CLUSTER"
     gum style --foreground 245 " STAGE    : $STAGE"
     gum style --foreground 245 " PLAYBOOK : $PLAYBOOK"
     echo ""
